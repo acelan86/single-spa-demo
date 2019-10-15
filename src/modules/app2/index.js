@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import singleSpaVue from 'single-spa-vue'
-import App from './App.vue'
+import App from './App'
 
 const router = new VueRouter({
   base: 'app2',
@@ -9,21 +9,21 @@ const router = new VueRouter({
   routes: [
     {
       path: '/foo',
-      component: () => import('./Foo.vue')
+      component: () => import('./Foo.vue'),
     },
     {
       path: '/bar',
-      component: () => import('./Bar.vue')
+      component: () => import('./Bar.vue'),
     },
     {
       path: '',
-      redirect: '/foo'
+      redirect: '/foo',
     },
     {
       path: '*',
-      redirect: '/foo'
-    }
-  ]
+      redirect: '/foo',
+    },
+  ],
 })
 
 const vueLifecycles = singleSpaVue({
@@ -33,8 +33,8 @@ const vueLifecycles = singleSpaVue({
     el: '#app',
     render(h) {
       return h(App)
-    }
-  }
+    },
+  },
 })
 
 export const bootstrap = [vueLifecycles.bootstrap]

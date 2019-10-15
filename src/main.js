@@ -11,5 +11,5 @@ Vue.use(VueRouter)
 new Vue({
   el: '#root',
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
 })
